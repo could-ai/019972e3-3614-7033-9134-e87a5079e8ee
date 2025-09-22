@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:carousel_slider/carousel_slider.dart';
+import 'package:carousel_slider/carousel_slider.dart' as carousel;
 
 class StoryScreen extends StatefulWidget {
   const StoryScreen({super.key});
@@ -10,7 +10,8 @@ class StoryScreen extends StatefulWidget {
 
 class _StoryScreenState extends State<StoryScreen> {
   int _currentIndex = 0;
-  final CarouselController _carouselController = CarouselController();
+  final carousel.CarouselController _carouselController =
+      carousel.CarouselController();
 
   final List<Map<String, String>> _storyData = [
     {
@@ -68,7 +69,7 @@ class _StoryScreenState extends State<StoryScreen> {
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 24),
-              CarouselSlider.builder(
+              carousel.CarouselSlider.builder(
                 carouselController: _carouselController,
                 itemCount: _storyData.length,
                 itemBuilder: (context, index, realIndex) {
@@ -86,10 +87,14 @@ class _StoryScreenState extends State<StoryScreen> {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Icon(Icons.image_not_supported, size: 50, color: Colors.grey),
+                              Icon(Icons.image_not_supported,
+                                  size: 50, color: Colors.grey),
                               SizedBox(height: 8),
-                              Text("Image not found", style: TextStyle(color: Colors.grey)),
-                              Text("Please add images to assets/images/", style: TextStyle(color: Colors.grey, fontSize: 12)),
+                              Text("Image not found",
+                                  style: TextStyle(color: Colors.grey)),
+                              Text("Please add images to assets/images/",
+                                  style: TextStyle(
+                                      color: Colors.grey, fontSize: 12)),
                             ],
                           ),
                         );
@@ -97,7 +102,7 @@ class _StoryScreenState extends State<StoryScreen> {
                     ),
                   );
                 },
-                options: CarouselOptions(
+                options: carousel.CarouselOptions(
                   height: 300,
                   enlargeCenterPage: true,
                   viewportFraction: 0.8,
